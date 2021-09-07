@@ -8,11 +8,12 @@ class EmailAddressParser
     def initialize(emails)
         @emails = emails
     end
+
     def parse
-        full_string = emails.gsub(/[\s,]/ ," ")
-        full_string_array = full_string.split(" ")
-        full_string_array.uniq
+        parsed = emails.split(",")
+        parsed.collect{|value| value.split(" ")}.flatten.uniq
     end
+
 
 end
 
